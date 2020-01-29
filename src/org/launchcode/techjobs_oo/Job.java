@@ -17,6 +17,7 @@ public class Job {
         this.id = nextId;
         nextId++;
     }
+
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -28,8 +29,12 @@ public class Job {
 
 
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
+    @Override
+    public String toString() {
+        String line1 = "\n";
+        String lineLast = "\n";
+        return line1 + lineLast;
+    }
 
 
     @Override
