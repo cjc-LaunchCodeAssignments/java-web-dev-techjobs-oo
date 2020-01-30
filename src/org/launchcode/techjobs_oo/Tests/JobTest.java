@@ -8,6 +8,8 @@ import org.junit.*;
 
 import org.launchcode.techjobs_oo.*;
 
+import java.util.ArrayList;
+
 
 public class JobTest {
 
@@ -17,6 +19,7 @@ public class JobTest {
     public void testSettingJobId() {
         Job job1 = new Job();
         Job job2 = new Job();
+        
 
         assertFalse(job1.getId() == job2.getId());
         assertEquals(1, job2.getId() - job1.getId());
@@ -44,8 +47,9 @@ public class JobTest {
     @Test
     public void testToString() {
         Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        String firstLine = testJob3.toString().toCharArray()
-        assertEquals("\n",testJob3.toString().toCharArray()[0]);
+        char[] firstLine;
+        firstLine = testJob3.toString().toCharArray();
+
 
     }
 
