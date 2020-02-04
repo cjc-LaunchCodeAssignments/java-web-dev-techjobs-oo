@@ -3,10 +3,8 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class Job {
-
     private final int id;
     private static int nextId = 1;
-
     private String name;
     private Employer employer;
     private Location location;
@@ -40,7 +38,8 @@ public class Job {
         String line7 = "Core Competency: " + coreCompetency + "\n";
         String lineLast = " \n";
         String noData = "Data not available";
-        if(getName()==null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null){
+        if((getName()==null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null) ||
+                (getName() == "" && employer.getValue() == "" && location.getValue() == "" && positionType.getValue() == "" && coreCompetency.getValue() == "")){
             return line1 + "OOPS! This job does not seem to exist." + lineLast;
         } else {
 
@@ -56,7 +55,7 @@ public class Job {
             if(getPositionType() == null || positionType.getValue() == "") {
                 line6 = "Position Type: " + noData + "\n";
             }
-            if(getCoreCompetency() == null || positionType.getValue() == "") {
+            if(getCoreCompetency() == null || coreCompetency.getValue() == "") {
                 line7 = "Core Competency: " + noData + "\n";
             }
         }
@@ -121,4 +120,5 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
 }
