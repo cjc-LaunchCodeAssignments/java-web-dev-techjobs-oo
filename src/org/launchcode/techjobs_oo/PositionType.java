@@ -18,9 +18,14 @@ public class PositionType {
     }
 
     @Override
-    public String toString(){
-        return this.value;
+    public String toString() {
+        if(value!= null){
+            return value;
+        } else {
+            return "Data not available";
+        }
     }
+
 
     @Override
     public boolean equals(Object o) {

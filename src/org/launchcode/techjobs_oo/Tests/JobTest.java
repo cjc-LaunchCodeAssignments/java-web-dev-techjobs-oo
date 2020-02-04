@@ -47,10 +47,47 @@ public class JobTest {
     @Test
     public void testToString() {
         Job testJob3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        char[] firstLine;
-        firstLine = testJob3.toString().toCharArray();
+        String[] firstLine = testJob3.toString().split("\n");
+        assertEquals(" ", firstLine[0]);
+        assertEquals(" ", firstLine[firstLine.length-1]);
+        assertEquals("ID: " + testJob3.getId(), firstLine[1]);
+        assertEquals("Name: Product tester", firstLine[2]);
+        assertEquals("Employer: ACME", firstLine[3]);
+        assertEquals("Location: Desert", firstLine[4]);
+        assertEquals("Position Type: Quality control", firstLine[5]);
+        assertEquals("Core Competency: Persistence", firstLine[6]);
+
+
+
+
+
+
+
+
+
 
 
     }
+
+    @Test
+    public void moreStringTestsWithAbsentData(){
+        Job testJob4 = new Job();
+        assertEquals(" \nOOPS! This job does not seem to exist. \n", testJob4.toString());
+        testJob4.setName("Product tester");
+        assertEquals(" \n" +
+                "ID: 1\n" +
+                "Name: Product tester\n" +
+                "Employer: Data not available\n" +
+                "Location: Data not available\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Data not available\n" +
+                " \n", testJob4.toString());
+        Job testJob5 = new Job();
+        testJob5.setEmployer(new Employer("ACME"));
+        assertEquals("", testJob5.toString());
+
+    }
+
+
 
 }

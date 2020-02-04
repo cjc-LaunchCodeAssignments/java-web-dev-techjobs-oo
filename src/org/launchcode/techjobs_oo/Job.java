@@ -31,9 +31,40 @@ public class Job {
 
     @Override
     public String toString() {
-        String line1 = "\n";
-        String lineLast = "\n";
-        return line1 + lineLast;
+        String line1 = " \n";
+
+        String line2 = "ID: " + this.getId() + "\n";
+
+
+        String line3 = "Name: " + name + "\n";
+        String line4 = "Employer: " + employer + "\n";
+        String line5 = "Location: " + location + "\n";
+        String line6 = "Position Type: " + positionType + "\n";
+        String line7 = "Core Competency: " + coreCompetency + "\n";
+        String lineLast = " \n";
+        String noData = "Data not available";
+        String returnedString = line1 + line2 + line3 + line4 + line5 + line6 + line7 + lineLast;
+        if(getName()==null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null){
+            returnedString = line1 + "OOPS! This job does not seem to exist." + lineLast;
+        } else {
+
+            if (getName() == null) {
+                line3 = "Name: " + noData + "\n";
+            }
+            if(getEmployer() != null){
+                line4 = "Employer: " + noData + "\n";
+            }
+            if(getLocation() == null) {
+                line5 = ("Location: " + noData + "\n");
+            }
+            if(getPositionType() == null) {
+                line6 = "Position Type: " + noData + "\n";
+            }
+            if(getCoreCompetency() == null) {
+                line7 = "Core Competency: " + noData + "\n";
+            }
+        }
+        return returnedString;
     }
 
 
