@@ -32,10 +32,7 @@ public class Job {
     @Override
     public String toString() {
         String line1 = " \n";
-
         String line2 = "ID: " + this.getId() + "\n";
-
-
         String line3 = "Name: " + name + "\n";
         String line4 = "Employer: " + employer + "\n";
         String line5 = "Location: " + location + "\n";
@@ -47,19 +44,19 @@ public class Job {
             return line1 + "OOPS! This job does not seem to exist." + lineLast;
         } else {
 
-            if (getName() == null) {
+            if (getName() == null || getName() == "") {
                 line3 = "Name: " + noData + "\n";
             }
-            if(getEmployer() == null){
+            if(getEmployer() == null || employer.getValue() == "" ){
                 line4 = "Employer: " + noData + "\n";
             }
-            if(getLocation() == null) {
+            if(getLocation() == null || location.getValue() == "") {
                 line5 = ("Location: " + noData + "\n");
             }
-            if(getPositionType() == null) {
+            if(getPositionType() == null || positionType.getValue() == "") {
                 line6 = "Position Type: " + noData + "\n";
             }
-            if(getCoreCompetency() == null) {
+            if(getCoreCompetency() == null || positionType.getValue() == "") {
                 line7 = "Core Competency: " + noData + "\n";
             }
         }
