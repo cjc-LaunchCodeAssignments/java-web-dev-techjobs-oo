@@ -75,7 +75,7 @@ public class JobTest {
         assertEquals(" \nOOPS! This job does not seem to exist. \n", testJob4.toString());
         testJob4.setName("Product tester");
         assertEquals(" \n" +
-                "ID: 1\n" +
+                "ID: " + testJob4.getId() + "\n" +
                 "Name: Product tester\n" +
                 "Employer: Data not available\n" +
                 "Location: Data not available\n" +
@@ -84,8 +84,25 @@ public class JobTest {
                 " \n", testJob4.toString());
         Job testJob5 = new Job();
         testJob5.setEmployer(new Employer("ACME"));
-        assertEquals("", testJob5.toString());
-
+        assertEquals(" \n" +
+                "ID: " + testJob5.getId() + "\n" +
+                "Name: Data not available\n" +
+                "Employer: ACME\n" +
+                "Location: Data not available\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Data not available\n" +
+                " \n", testJob5.toString());
+        Job testJob6 = new Job();
+        testJob6.setLocation(new Location("Kansas City"));
+        testJob6.setCoreCompetency(new CoreCompetency("Java"));
+        assertEquals(" \n" +
+                "ID: " + testJob6.getId() + "\n" +
+                "Name: Data not available\n" +
+                "Employer: Data not available\n" +
+                "Location: Kansas City\n" +
+                "Position Type: Data not available\n" +
+                "Core Competency: Java\n" +
+                " \n", testJob6.toString());
     }
 
 

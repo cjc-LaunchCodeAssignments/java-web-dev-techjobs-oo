@@ -43,15 +43,14 @@ public class Job {
         String line7 = "Core Competency: " + coreCompetency + "\n";
         String lineLast = " \n";
         String noData = "Data not available";
-        String returnedString = line1 + line2 + line3 + line4 + line5 + line6 + line7 + lineLast;
         if(getName()==null && getEmployer() == null && getLocation() == null && getPositionType() == null && getCoreCompetency() == null){
-            returnedString = line1 + "OOPS! This job does not seem to exist." + lineLast;
+            return line1 + "OOPS! This job does not seem to exist." + lineLast;
         } else {
 
             if (getName() == null) {
                 line3 = "Name: " + noData + "\n";
             }
-            if(getEmployer() != null){
+            if(getEmployer() == null){
                 line4 = "Employer: " + noData + "\n";
             }
             if(getLocation() == null) {
@@ -64,7 +63,7 @@ public class Job {
                 line7 = "Core Competency: " + noData + "\n";
             }
         }
-        return returnedString;
+        return  line1 + line2 + line3 + line4 + line5 + line6 + line7 + lineLast;
     }
 
 
